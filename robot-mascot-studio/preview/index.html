@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Orb — Character Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div id="viewport"></div>
+
+  <header class="hud hud-top">
+    <div class="mark">
+      <span class="mark-dot" aria-hidden="true"></span>
+      <div>
+        <div class="mark-name">Orb</div>
+        <div class="mark-sub">robot_mascot.glb · character preview</div>
+      </div>
+    </div>
+    <div class="stats" id="stats">
+      <span id="stat-tris">— tris</span>
+      <span class="stats-sep">·</span>
+      <span id="stat-nodes">— nodes</span>
+    </div>
+  </header>
+
+  <div id="loading" class="loading">
+    <div class="loading-ring" aria-hidden="true"></div>
+    <div class="loading-label">Loading model<span id="loading-pct"></span></div>
+  </div>
+
+  <div id="error" class="error-panel" hidden>
+    <div class="error-title">Couldn't load the model</div>
+    <p class="error-detail" id="error-detail">Something went wrong while fetching robot_mascot.glb.</p>
+    <button class="btn btn-primary" id="retry-btn" type="button">Try again</button>
+  </div>
+
+  <footer class="hud hud-bottom">
+    <div class="dock" role="group" aria-label="Gestures">
+      <button class="pose-btn is-active" data-pose="idle" type="button">Idle</button>
+      <button class="pose-btn" data-pose="wave" type="button">Wave</button>
+      <button class="pose-btn" data-pose="point" type="button">Point</button>
+      <button class="pose-btn" data-pose="explain" type="button">Explain</button>
+    </div>
+    <div class="dock dock-tools" role="group" aria-label="View controls">
+      <button class="tool-btn" id="autorotate-btn" type="button" aria-pressed="false" title="Toggle auto-rotate">
+        <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path d="M12 4a8 8 0 1 1-6.93 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M4 2.5v5.5h5.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="tool-btn" id="reset-btn" type="button" title="Reset view">
+        <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><circle cx="12" cy="12" r="8.2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="1.8" fill="currentColor"/></svg>
+      </button>
+    </div>
+  </footer>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script type="module" src="main.js"></script>
+</body>
+</html>
